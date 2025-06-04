@@ -11,6 +11,8 @@ export const inscricaoElements = {
   
   //BOTOES
   botaoSalvarEContinuar: 'button:contains("Salvar e Avançar")',
+  botaoSalvar: 'span:contains("Salvar")',
+  botaoEnviar: 'button:contains("Enviar")',
 
   // INPUTS
   inputNome: '#Input_Nome',
@@ -28,6 +30,12 @@ export const inscricaoElements = {
   inputDataDeInicioDeServicoPublico: '#Input_DataInicioServicoPublico',
   inputTelefoneDeTrabalho: '#Input_TelefoneTrabalho',
   inputEmailInstitucional: '#Input_Email_Institucional',
+  inputNomeDependente: 'input[id^="l7-"][id$="Input_NomeDependente"]',
+  inputDataNascimentoDependente: 'input[id^="l7-"][id$="Input_DataNascimento"]',
+  inputIdadeGestacional: '#Input_IdadeGestacional',
+  inputDataPrevistaDoParto: '#Input_DataPrevistaParto',
+  inputCursoOuPalestra: 'input[id$="Input_Curso"]',
+  inputCargaHorariaDoCurso: 'input[id$="Input_CargaHoraria"]',
   
 
 
@@ -48,6 +56,9 @@ export const inscricaoElements = {
   mensagemDeAvisoTelefoneDeTrabalho: '#Input_TelefoneTrabalho_DescribedBy',
   mensagemDeAvisoEmailInstitucional: '#Input_Email_Institucional_DescribedBy',
   mensagemDeAvisoContracheque: '#UploadContraCheque_DescribedBy',
+  mensagemDeAvisoIdadeGestacional: '#Input_IdadeGestacional_DescribedBy',
+  mensagemDeAvisoDataDoParto: '#Input_DataPrevistaParto_DescribedBy',
+  mensagemDeAvisoQuantidadeDeBebes: '#Input_Qtd_bebes_DescribedBy',
 
   
   //DROPBOX
@@ -61,13 +72,28 @@ export const inscricaoElements = {
   checkNaoParaDeficiencia: '#RadioButtonNao-input',
   checkSimParaDeficiencia: '#RadioButtonSim-input',
   checkOpcaoDePesquisaCid: 'span:contains("A00: Cólera")',
+  checkPleitarVagaBercario: '#RadioButtonPleitear-input',
+  checkNaoPleitarVagaBercario: '#RadioButtonNaoPleitear-input',
+  checkSimParaGestante: '#RadioButtonGestante-input',
+  checkNaoGestacaoUnica: '#RadioButtonNaoGestantacaoUnica-input',
+  checkNaoRealizouCursos: '#RadioGroupRealizouCurso',
+  checkSimRealizouCursos: '#RadioButtonRealizou-input',
+
+
 
   //ICONES
   iconeDeLixeira: 'i.fa-trash',
+  iconeDeExclusaoDeFilho: 'i.text-error',
+  iconeDeInclusaoDeFilho: '.ThemeGrid_MarginGutter > .icon',
+
+  //UPLOADS
+  uploadContraCheque: '#UploadContraCheque input[type="file"]',
+  uploadCertidaoDeNascimento: 'label[id^="l7-"][id$="UploadCertidao"] input[type="file"]',
+  uploadCertifcadoDoCursoOuPalestra: 'label[id$="UploadCertificado"] input[type="file"]',
 };
 
 
    
-
+//'label:contains("Nome completo do dependente 1:") + span input'
   
-  
+   
