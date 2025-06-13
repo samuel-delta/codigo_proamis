@@ -8,6 +8,8 @@
 
 export const inscricaoElements = {
   // MENUS E SUBMENOS
+  menuMenuPrincipal: '.menu-icon',
+  menuMeuCadastro: 'a:contains("Meu Cadastro")  ',
   
   //BOTOES
   botaoSalvarEContinuar: 'button:contains("Salvar e Avançar")',
@@ -37,7 +39,6 @@ export const inscricaoElements = {
   inputCursoOuPalestra: 'input[id$="Input_Curso"]',
   inputCargaHorariaDoCurso: 'input[id$="Input_CargaHoraria"]',
   
-
 
   //MENSAGENS
   mensagemDeAvisoSobreSexoMasculino: '#DropdownSexo_DescribedBy',

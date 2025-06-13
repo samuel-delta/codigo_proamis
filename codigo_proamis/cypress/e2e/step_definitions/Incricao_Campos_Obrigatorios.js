@@ -14,6 +14,9 @@ import { inscricaoElements as el } from '@pages/Inscricao/Inscricao.js';
 //CT01: Incrição - Validar Campos Obrigatórios de Dados Pessoais
 Dado('o usuário esteja na pagina de inscrição do PROAMIS, na paágina de Dados Pessoais', () => {
   cy.login_sistema();
+  cy.get(el.menuMenuPrincipal).click();
+  cy.get(el.menuMeuCadastro).click();
+  cy.contains('REALIZAR INSCRIÇÃO - BERÇÁRIO BURITI', { timeout: 10000 }).should('be.visible');
 });
 
 Quando('o usuário deixar de preencher todos os campos obrigatórios', () => {
@@ -75,6 +78,9 @@ Entao('o sistema não avança para proxima parte ao clicar no botão Salvar e Av
 //CT02: Incrição - Validar Campos Obrigatórios de Dados do Orgão
 Dado('o usuário esteja na pagina de inscrição do PROAMIS, na página de Dados do Orgao CT02', () => {
   cy.login_sistema();
+  cy.get(el.menuMenuPrincipal).click();
+  cy.get(el.menuMeuCadastro).click();
+  cy.contains('REALIZAR INSCRIÇÃO - BERÇÁRIO BURITI', { timeout: 10000 }).should('be.visible');
   cy.get(el.checkTermoDeAceito).click();
   cy.get(el.inputNome).type(faker.person.fullName());
   cy.get(el.botaoSalvarEContinuar).click();
@@ -197,7 +203,10 @@ Entao('o sistema não avança para proxima parte ao clicar no botão Salvar e Av
 
 Dado('o usuário esteja na pagina de inscrição do PROAMIS, na página de Dados do Orgao CT03', () => {
   cy.login_sistema();
-    cy.get(el.checkTermoDeAceito).click();
+  cy.get(el.menuMenuPrincipal).click();
+  cy.get(el.menuMeuCadastro).click();
+  cy.contains('REALIZAR INSCRIÇÃO - BERÇÁRIO BURITI', { timeout: 10000 }).should('be.visible');
+  cy.get(el.checkTermoDeAceito).click();
   cy.get(el.inputNome).clear();
   cy.get(el.inputNome).type(faker.person.fullName());
   cy.get(el.botaoSalvarEContinuar).click();
@@ -244,8 +253,6 @@ Quando('o usuário deixar de preencher todos os campos obrigatórios CT03', () =
 });
 
 Entao('o sistema não avança para proxima parte ao clicar no botão Salvar e Avançar CT03', () => {
- 
-
   cy.get(el.botaoSalvarEContinuar).click();
   cy.get(el.mensagemDeAvisoQuantidadeDeBebes).should('contain.text', 'Informe a quantidade de bebês!');
 }); 
@@ -255,6 +262,9 @@ Entao('o sistema não avança para proxima parte ao clicar no botão Salvar e Av
 
 Dado('o usuário esteja na pagina de inscrição do PROAMIS, na página de Cursos CT04', () => {
   cy.login_sistema();
+  cy.get(el.menuMenuPrincipal).click();
+  cy.get(el.menuMeuCadastro).click();
+  cy.contains('REALIZAR INSCRIÇÃO - BERÇÁRIO BURITI', { timeout: 10000 }).should('be.visible');
   cy.get(el.checkTermoDeAceito).click();
   cy.get(el.inputNome).clear();
   cy.get(el.inputNome).type(faker.person.fullName());
@@ -302,6 +312,9 @@ Entao('o sistema não avança para proxima parte ao clicar no botão Salvar e Av
 
 Dado('o usuário esteja na pagina de inscrição do PROAMIS, na página de Enviar Cadastro CT05', () => {
   cy.login_sistema();
+  cy.get(el.menuMenuPrincipal).click();
+  cy.get(el.menuMeuCadastro).click();
+  cy.contains('REALIZAR INSCRIÇÃO - BERÇÁRIO BURITI', { timeout: 10000 }).should('be.visible');
   cy.get(el.checkTermoDeAceito).click();
   cy.get(el.inputNome).clear();
   cy.get(el.inputNome).type(faker.person.fullName());

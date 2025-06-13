@@ -7,5 +7,4 @@ Cypress.Commands.add("login_sistema", () => {
     cy.get('#DropdownOrgao').select('GDF');
     cy.get('#b8-Button').click();
     cy.get('.icone-sistema-wrapper').contains('PROAMIS').click();
-    cy.contains('REALIZAR INSCRIÇÃO - BERÇÁRIO BURITI', { timeout: 10000 }).should('be.visible');
 })
