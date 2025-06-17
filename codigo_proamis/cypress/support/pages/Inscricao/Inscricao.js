@@ -7,14 +7,20 @@
 // - Enviar Cadastro
 
 export const inscricaoElements = {
+  //ICONES
+  iconeProamis: 'div.application-name',
+  
   // MENUS E SUBMENOS
   menuMenuPrincipal: '.menu-icon',
-  menuMeuCadastro: 'a:contains("Meu Cadastro")  ',
+  menuMeuCadastro: 'a:contains("Meu Cadastro")',
   
   //BOTOES
   botaoSalvarEContinuar: 'button:contains("Salvar e Avançar")',
   botaoSalvar: 'span:contains("Salvar")',
   botaoEnviar: 'button:contains("Enviar")',
+  botaoEditarCadastro: '#div_BtnEditarCadastro',
+  botaoSimEditar: 'button:contains("Sim, editar")',
+  botaoAdiconarCurso: 'button:contains("Adicionar Curso")',
 
   // INPUTS
   inputNome: '#Input_Nome',
@@ -79,13 +85,13 @@ export const inscricaoElements = {
   checkNaoGestacaoUnica: '#RadioButtonNaoGestantacaoUnica-input',
   checkNaoRealizouCursos: '#RadioGroupRealizouCurso',
   checkSimRealizouCursos: '#RadioButtonRealizou-input',
-
-
+  checkAceitoNoFinalDoCadastro: '#CheckboxAceite',
 
   //ICONES
   iconeDeLixeira: 'i.fa-trash',
   iconeDeExclusaoDeFilho: 'i.text-error',
   iconeDeInclusaoDeFilho: '.ThemeGrid_MarginGutter > .icon',
+  iconeRemoverCurso: '[id$="RemoveCurso"]',
 
   //UPLOADS
   uploadContraCheque: '#UploadContraCheque input[type="file"]',

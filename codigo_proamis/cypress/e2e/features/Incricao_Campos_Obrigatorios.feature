@@ -3,7 +3,7 @@
 Funcionalidade: Inscrição - Campos Obrigatórios
 
 Cenário: CT01: Incrição - Validar Campos Obrigatórios de Dados Pessoais
-    Dado o usuário esteja na pagina de inscrição do PROAMIS, na paágina de Dados Pessoais
+    Dado o usuário esteja na pagina de inscrição do PROAMIS, na página de Dados Pessoais
     Quando o usuário deixar de preencher todos os campos obrigatórios
     Entao o sistema não avança para proxima parte ao clicar no botão Salvar e Avançar
 

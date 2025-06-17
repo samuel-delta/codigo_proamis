@@ -12,11 +12,11 @@ const telefone = faker.phone.number('(##) 9####-####');
 import { inscricaoElements as el } from '@pages/Inscricao/Inscricao.js';
 
 //CT01: Incrição - Validar Campos Obrigatórios de Dados Pessoais
-Dado('o usuário esteja na pagina de inscrição do PROAMIS, na paágina de Dados Pessoais', () => {
+Dado('o usuário esteja na pagina de inscrição do PROAMIS, na página de Dados Pessoais', () => {
   cy.login_sistema();
   cy.get(el.menuMenuPrincipal).click();
   cy.get(el.menuMeuCadastro).click();
-  cy.contains('REALIZAR INSCRIÇÃO - BERÇÁRIO BURITI', { timeout: 10000 }).should('be.visible');
+  cy.get(el.iconeProamis, { timeout: 20000 }).contains('PROAMIS')
 });
 
 Quando('o usuário deixar de preencher todos os campos obrigatórios', () => {
@@ -35,8 +35,7 @@ Quando('o usuário deixar de preencher todos os campos obrigatórios', () => {
       cy.get(el.checkNaoParaDeficiencia).click();
   }
   });
-
-
+  
   cy.get(el.inputNome).type(faker.person.fullName());
   cy.get(el.botaoSalvarEContinuar).should('be.disabled'); //Confere se o botão está desabilitado
   cy.get(el.checkTermoDeAceito).click();
@@ -80,7 +79,6 @@ Dado('o usuário esteja na pagina de inscrição do PROAMIS, na página de Dados
   cy.login_sistema();
   cy.get(el.menuMenuPrincipal).click();
   cy.get(el.menuMeuCadastro).click();
-  cy.contains('REALIZAR INSCRIÇÃO - BERÇÁRIO BURITI', { timeout: 10000 }).should('be.visible');
   cy.get(el.checkTermoDeAceito).click();
   cy.get(el.inputNome).type(faker.person.fullName());
   cy.get(el.botaoSalvarEContinuar).click();
@@ -205,7 +203,6 @@ Dado('o usuário esteja na pagina de inscrição do PROAMIS, na página de Dados
   cy.login_sistema();
   cy.get(el.menuMenuPrincipal).click();
   cy.get(el.menuMeuCadastro).click();
-  cy.contains('REALIZAR INSCRIÇÃO - BERÇÁRIO BURITI', { timeout: 10000 }).should('be.visible');
   cy.get(el.checkTermoDeAceito).click();
   cy.get(el.inputNome).clear();
   cy.get(el.inputNome).type(faker.person.fullName());
@@ -222,13 +219,6 @@ Dado('o usuário esteja na pagina de inscrição do PROAMIS, na página de Dados
 Quando('o usuário deixar de preencher todos os campos obrigatórios CT03', () => {
   cy.get(el.inputNomeDependente).clear();
   cy.get(el.inputDataNascimentoDependente).clear();
-
-  cy.get('body').then(($body) => {
-    if ($body.find(el.iconeDeLixeira).length > 0 && $body.find(el.iconeDeLixeira).is(':visible')) {
-      cy.get(el.iconeDeLixeira).click();
-  }
-  });
-
   cy.get(el.checkNaoPleitarVagaBercario).click();
   cy.get(el.checkPleitarVagaBercario).click();
   cy.get(el.iconeDeInclusaoDeFilho).click();
@@ -335,4 +325,14 @@ Quando('o usuário deixar de preencher todos os campos obrigatórios CT05', () =
 
 Entao('o sistema não avança para proxima parte ao clicar no botão Salvar e Avançar CT05', () => {
   cy.get(el.botaoEnviar).should('be.disabled');
+  cy.wait(5000);
+  //Essa parte do código reseta o cadastro para proximos usos:
+
+  cy.get(el.checkAceitoNoFinalDoCadastro).click();
+  cy.get(el.botaoEnviar).click();
+  cy.contains('Cadadastro enviado com sucesso!', { timeout: 20000 });
+  cy.get(el.botaoEditarCadastro).click();
+  cy.get(el.botaoSimEditar).click();
+  cy.contains('REALIZAR INSCRIÇÃO - BERÇÁRIO BURITI', { timeout: 10000 }).should('be.visible');
+
 });
