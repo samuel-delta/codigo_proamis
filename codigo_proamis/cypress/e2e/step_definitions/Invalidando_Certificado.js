@@ -14,7 +14,7 @@ const emailGerado = faker.internet.email();
 import { inscricaoElements as el } from '@pages/Inscricao/Inscricao.js';
 import { cadastrosElements as ca} from '@pages/Cadastro/Cadastro.js';
 
-Dado('que o tenha um usuário cadastrado que não tenha validado o certificado - IV', () => {
+Dado('que o tenha um usuário cadastrado que não tenha validado o certificado', () => {
   cy.login_sistema();
   cy.get(el.menuMenuPrincipal).click();
   cy.get(el.menuMeuCadastro).click();
@@ -67,29 +67,29 @@ Dado('que o tenha um usuário cadastrado que não tenha validado o certificado -
   cy.contains('Cadadastro enviado com sucesso!', { timeout: 20000 });
 });
 
-Dado('encontrar esse usuario na busca dos cadastros - IV', () => {
+Dado('encontrar esse usuario na busca dos cadastros', () => {
   cy.get(el.menuMenuPrincipal).click();
   cy.get(ca.subMenuCadastros).eq(1).click({ force: true });
   cy.get(ca.inputNomeOuCPF).type(nomeGerado);
   cy.get(ca.botaoPesquisar).click();
 });
 
-Dado('acessar informações do usuario cadastrado - IV', () => {
+Dado('acessar informações do usuario cadastrado', () => {
 
   cy.get('table').contains('td', nomeGerado).parent().find('a[href*="CadastroDetail"]').click();
 
 });
 
-Quando('clicar em Validar Certificado - IV', () => {
-  cy.get(ca.botaoValidarCertificado).click();
+Quando('clicar em invalidar Certificado - IV', () => {
+  cy.get(ca.botaoInvalidarCertificado).click();
   cy.on('window:confirm', (text) => {
-  expect(text).to.include('Deseja realmente VALIDAR este certificado?');
+  expect(text).to.include('eseja realmente INVALIDAR este certificado?');
   return true; //Aperta o "ok"
 });
 });
 
-Entao('o sistema valida e apresenta a mensagem: Certificado validado com sucesso!', () => {
-    cy.contains('Certificado validado com sucesso');
+Entao('o sistema invalida e apresenta a mensagem: Certificado validado com sucesso! - IV', () => {
+    cy.contains('Certificado invalidado com sucesso');
     cy.wait(5000);
 
     //Essa parte reseta o cadastro para os programas continuarem funcionando no futuro:

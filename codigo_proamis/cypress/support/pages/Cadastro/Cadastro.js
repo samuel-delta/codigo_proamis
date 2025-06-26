@@ -9,5 +9,6 @@ export const cadastrosElements = {
     //BOTOES
     botaoPesquisar: 'button:contains("Pesquisar")',
     botaoValidarCertificado: 'a[title="Validar Certificado"]',
+    botaoInvalidarCertificado: 'a[title="Invalidar Certificado"]',
 
 }
