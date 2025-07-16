@@ -11,4 +11,5 @@ export const cadastrosElements = {
     botaoValidarCertificado: 'a[title="Validar Certificado"]',
     botaoInvalidarCertificado: 'a[title="Invalidar Certificado"]',
 
+
 }

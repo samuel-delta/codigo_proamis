@@ -16,8 +16,8 @@ import { cadastrosElements as ca} from '@pages/Cadastro/Cadastro.js';
 
 Dado('que o tenha um usuário cadastrado que não tenha validado o certificado', () => {
   cy.login_sistema();
-  cy.get(el.menuMenuPrincipal).click();
-  cy.get(el.menuMeuCadastro).click();
+  cy.get(el.menuMenuPrincipal, { timeout: 20000 }).click();
+  cy.get(el.menuMeuCadastro).eq(0).click({force: true});
   cy.get(el.iconeProamis, { timeout: 20000 }).contains('PROAMIS')
 
   //Primeiroa Parte do Cadastro: Dados Pessoais
@@ -62,13 +62,14 @@ Dado('que o tenha um usuário cadastrado que não tenha validado o certificado',
   cy.get(el.botaoSalvar).click();
 
   //Enviar Cadastro:
+  cy.get(el.botaoCiente).click();
   cy.get(el.checkAceitoNoFinalDoCadastro).click();
   cy.get(el.botaoEnviar).click();
   cy.contains('Cadadastro enviado com sucesso!', { timeout: 20000 });
 });
 
 Dado('encontrar esse usuario na busca dos cadastros', () => {
-  cy.get(el.menuMenuPrincipal).click();
+  cy.get(el.menuMenuPrincipal, { timeout: 20000 }).click();
   cy.get(ca.subMenuCadastros).eq(1).click({ force: true });
   cy.get(ca.inputNomeOuCPF).type(nomeGerado);
   cy.get(ca.botaoPesquisar).click();
@@ -93,8 +94,8 @@ Entao('o sistema invalida e apresenta a mensagem: Certificado validado com suces
     cy.wait(5000);
 
     //Essa parte reseta o cadastro para os programas continuarem funcionando no futuro:
-    cy.get(el.menuMenuPrincipal).click();
-    cy.get(el.menuMeuCadastro).click();
+    cy.get(el.menuMenuPrincipal, { timeout: 20000 }).click();
+    cy.get(el.menuMeuCadastro).eq(0).click({force: true});
     cy.get(el.botaoEditarCadastro).click();
     cy.get(el.botaoSimEditar).click();
     cy.contains('REALIZAR INSCRIÇÃO - BERÇÁRIO BURITI', { timeout: 10000 }).should('be.visible');

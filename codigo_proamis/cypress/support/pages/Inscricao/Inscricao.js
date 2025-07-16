@@ -21,6 +21,7 @@ export const inscricaoElements = {
   botaoEditarCadastro: '#div_BtnEditarCadastro',
   botaoSimEditar: 'button:contains("Sim, editar")',
   botaoAdiconarCurso: 'button:contains("Adicionar Curso")',
+  botaoCiente: 'button:contains("Ciente")',
 
   // INPUTS
   inputNome: '#Input_Nome',
