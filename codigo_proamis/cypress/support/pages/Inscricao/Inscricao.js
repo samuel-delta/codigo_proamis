@@ -23,6 +23,7 @@ export const inscricaoElements = {
   botaoAdiconarCurso: 'button:contains("Adicionar Curso")',
   botaoCiente: 'button:contains("Ciente")',
 
+
   // INPUTS
   inputNome: '#Input_Nome',
   inputCPF: '#Input_CPF',
