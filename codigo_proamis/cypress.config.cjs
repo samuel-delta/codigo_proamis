@@ -2,7 +2,6 @@ const { defineConfig } = require('cypress');
 const webpack = require('@cypress/webpack-preprocessor');
 const { addCucumberPreprocessorPlugin } = require('@badeball/cypress-cucumber-preprocessor');
 const path = require('path');
-const { readPDF, readTXT, readExcel } = require('./cypress/support/index.js');
 
 module.exports = defineConfig({
   e2e: {
@@ -46,19 +45,19 @@ module.exports = defineConfig({
         },
       });
 
-      // Preprocessador
       on('file:preprocessor', bundler);
 
-      // Tasks customizadas (PDF, TXT, Excel)
+      // Agora com o import corrigido
+      const { readPDF, readTXT, readExcel, deleteDownloads } = require('./cypress/node_tasks.cjs');
+
       on('task', {
         readPDF,
         readTXT,
         readExcel,
+        deleteDownloads,
       });
 
-      // Diretório de step definitions
       config.env.stepDefinitions = 'cypress/e2e/step_definitions/**/*.js';
-
       return config;
     },
     baseUrl: 'https://homolog.sistemas.df.gov.br',
