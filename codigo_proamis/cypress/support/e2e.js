@@ -15,5 +15,6 @@
 
 import './commands.js';
 import './commands/login_commands.js';
+import './commands/validando_arquivos.js';
 import 'cypress-file-upload';
 

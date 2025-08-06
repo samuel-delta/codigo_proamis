@@ -3,10 +3,13 @@ export const menusESubmenusElements = {
   iconeProamis: 'div.application-name',
   
   // MENUS E SUBMENOS
-  MenuPrincipal: '.menu-icon',
+  Principal: '.menu-icon',
+  Cadastro: 'a:contains("Meu Cadastro")',
   MeuCadastro: 'a:contains("Meu Cadastro")',
   SubMenuCadastros: 'a:contains("Cadastros")',
   Administração: '#b2-b2-Menu div:contains("Administração")',
+  ListaDeClassificação: 'a[href="/PROAMIS/ListasClassificacao"]',
   Classificação: 'a[href="/PROAMIS/Classificacao"]',
+  Crianças: 'a:contains("Crianças")',
 
 }
