@@ -64,6 +64,7 @@ Dado('que o tenha um usuário cadastrado que não tenha validado o certificado',
   //Enviar Cadastro:
   cy.get(el.botaoCiente).click();
   cy.get(el.checkAceitoNoFinalDoCadastro).click();
+  cy.get(el.checkSegundoAceitoNoFinalDoCadastro).click();
   cy.get(el.botaoEnviar).click();
   cy.contains('Cadadastro enviado com sucesso!', { timeout: 20000 });
 });

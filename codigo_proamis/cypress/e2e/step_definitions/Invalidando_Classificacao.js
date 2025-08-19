@@ -20,9 +20,9 @@ import { classificaçãoElements as cla} from '@pages/Administração/Classifica
 
 Dado('que o usuário deseje validar um cadastro como Classificado CT01', () => {
   cy.login_sistema();
-  cy.get(menu.MenuPrincipal, { timeout: 20000 }).click();
+  cy.get(menu.Principal, { timeout: 20000 }).click();
   cy.get(menu.MeuCadastro).eq(0).click({force: true});
-  cy.get(el.iconeProamis, { timeout: 20000 }).contains('PROAMIS')
+  cy.get(menu.iconeProamis, { timeout: 20000 }).contains('PROAMIS')
 });
 
 Dado('tenha um cadastro válido para classificar CT01', () => {
@@ -88,6 +88,7 @@ Dado('tenha um cadastro válido para classificar CT01', () => {
     //Enviar Cadastro:
     cy.get(el.botaoCiente).click();
     cy.get(el.checkAceitoNoFinalDoCadastro).click();
+    cy.get(el.checkSegundoAceitoNoFinalDoCadastro).click();
     cy.get(el.botaoEnviar).click();
     cy.contains('Cadadastro enviado com sucesso!', { timeout: 20000 });
 
@@ -117,7 +118,7 @@ Dado('tenha um cadastro válido para classificar CT01', () => {
 });
 
 Quando('entrar na área de CLASSIFIÇÃO CT01', () => {
-  cy.get(menu.MenuPrincipal, { timeout: 20000 }).click();
+  cy.get(menu.Principal, { timeout: 20000 }).click();
   cy.get(menu.Administração).click();
   cy.get(menu.Classificação, { timeout: 20000 }).click();
 }); 
@@ -141,7 +142,7 @@ Quando('clicar no botão SALVAR CT01', () => {
 }); 
 
 Entao('o sistema muda o status daquele cadastro para DESCLASSIFICADO CT01', () => {
-  cy.get(menu.MenuPrincipal, { timeout: 20000 }).click();
+  cy.get(menu.Principal, { timeout: 20000 }).click();
   cy.get(menu.SubMenuCadastros).eq(1).click({ force: true });
   cy.get(ca.inputNomeOuCPF).type(nomeGerado);
   cy.get(ca.botaoPesquisar).click();
@@ -150,7 +151,7 @@ Entao('o sistema muda o status daquele cadastro para DESCLASSIFICADO CT01', () =
   cy.wait(5000);
   
   //Essa parte reseta o cadastro para os programas continuarem funcionando no futuro:
-  cy.get(menu.MenuPrincipal, { timeout: 20000 }).click();
+  cy.get(menu.Principal, { timeout: 20000 }).click();
   cy.get(menu.MeuCadastro).eq(0).click({force: true});
   cy.get(el.botaoEditarCadastro).click();
   cy.get(el.botaoSimEditar).click();
@@ -173,9 +174,10 @@ Entao('o sistema muda o status daquele cadastro para DESCLASSIFICADO CT01', () =
   //Enviar Cadastro:
   cy.get(el.botaoCiente).click();
   cy.get(el.checkAceitoNoFinalDoCadastro).click();
+  cy.get(el.checkSegundoAceitoNoFinalDoCadastro).click();
   cy.get(el.botaoEnviar).click();
   cy.contains('Cadadastro enviado com sucesso!', { timeout: 20000 });
-  cy.get(menu.MenuPrincipal, { timeout: 20000 }).click();
+  cy.get(menu.Principal, { timeout: 20000 }).click();
   cy.get(menu.MeuCadastro).eq(0).click({force: true});
   cy.get(el.botaoEditarCadastro).click();
   cy.get(el.botaoSimEditar).click();

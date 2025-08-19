@@ -330,6 +330,7 @@ Entao('o sistema não avança para proxima parte ao clicar no botão Salvar e Av
   //Essa parte do código reseta o cadastro para proximos usos:
 
   cy.get(el.checkAceitoNoFinalDoCadastro).click();
+  cy.get(el.checkSegundoAceitoNoFinalDoCadastro).click();
   cy.get(el.botaoEnviar).click();
   cy.contains('Cadadastro enviado com sucesso!', { timeout: 20000 });
   cy.get(el.botaoEditarCadastro).click();

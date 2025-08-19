@@ -88,6 +88,7 @@ export const inscricaoElements = {
   checkNaoRealizouCursos: '#RadioGroupRealizouCurso',
   checkSimRealizouCursos: '#RadioButtonRealizou-input',
   checkAceitoNoFinalDoCadastro: '#CheckboxAceite',
+  checkSegundoAceitoNoFinalDoCadastro: '#CheckboxAceite2',
 
   //ICONES
   iconeDeLixeira: 'i.fa-trash',
