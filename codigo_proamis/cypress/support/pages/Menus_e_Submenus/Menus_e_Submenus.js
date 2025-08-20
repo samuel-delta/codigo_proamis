@@ -11,5 +11,6 @@ export const menusESubmenusElements = {
   ListaDeClassificação: 'a[href="/PROAMIS/ListasClassificacao"]',
   Classificação: 'a[href="/PROAMIS/Classificacao"]',
   Crianças: 'a:contains("Crianças")',
+  Logs: 'a[href="/PROAMIS/Logs"]',
 
 }

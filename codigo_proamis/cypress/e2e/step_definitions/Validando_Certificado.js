@@ -14,7 +14,7 @@ const emailGerado = faker.internet.email();
 import { inscricaoElements as el } from '@pages/Inscricao/Inscricao.js';
 import { cadastrosElements as ca} from '@pages/Cadastro/Cadastro.js';
 
-Dado('que o tenha um usuário cadastrado que não tenha validado o certificado - IV', () => {
+Dado('que o tenha um usuário cadastrado que não tenha validado o certificado - VC', () => {
   cy.login_sistema();
   cy.get(el.menuMenuPrincipal, { timeout: 20000 }).click();
   cy.get(el.menuMeuCadastro).eq(0).click({force: true});
@@ -69,20 +69,20 @@ Dado('que o tenha um usuário cadastrado que não tenha validado o certificado -
   cy.contains('Cadadastro enviado com sucesso!', { timeout: 20000 });
 });
 
-Dado('encontrar esse usuario na busca dos cadastros - IV', () => {
+Dado('encontrar esse usuario na busca dos cadastros - VC', () => {
   cy.get(el.menuMenuPrincipal, { timeout: 20000 }).click();
   cy.get(ca.subMenuCadastros).eq(1).click({ force: true });
   cy.get(ca.inputNomeOuCPF).type(nomeGerado);
   cy.get(ca.botaoPesquisar).click();
 });
 
-Dado('acessar informações do usuario cadastrado - IV', () => {
+Dado('acessar informações do usuario cadastrado - VC', () => {
 
   cy.get('table').contains('td', nomeGerado).parent().find('a[href*="CadastroDetail"]').click();
 
 });
 
-Quando('clicar em Validar Certificado - IV', () => {
+Quando('clicar em Validar Certificado - VC', () => {
   cy.get(ca.botaoValidarCertificado).click();
   cy.on('window:confirm', (text) => {
   expect(text).to.include('Deseja realmente VALIDAR este certificado?');
@@ -90,7 +90,7 @@ Quando('clicar em Validar Certificado - IV', () => {
 });
 });
 
-Entao('o sistema valida e apresenta a mensagem: Certificado validado com sucesso!', () => {
+Entao('o sistema valida e apresenta a mensagem: Certificado validado com sucesso! - VC', () => {
     cy.contains('Certificado validado com sucesso');
     cy.wait(5000);
 
